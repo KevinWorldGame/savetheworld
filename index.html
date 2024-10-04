@@ -14,19 +14,17 @@
     <a-scene
       embedded
       renderer="logarithmicDepthBuffer: true;"
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
-      
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
       <!-- Marker Entity -->
-        <a-nft
-            type="nft"
-            url="assets/markers/qr-code"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-            id="marker"
-        >
-        
+      <a-nft
+          type="nft"
+          url="assets/markers/qr-code"
+          id="marker"
+          emitevents="true"
+      >
         <!-- Board Game Model -->
         <a-entity
             id="board-game"
@@ -34,9 +32,8 @@
             position="0 0 0"
             rotation="0 0 0"
             scale="1 1 1"
-            ></a-entity>
-
-        </a-nft>
+        ></a-entity>
+      </a-nft>
 
       <!-- Camera and Cursor -->
       <a-entity camera>
