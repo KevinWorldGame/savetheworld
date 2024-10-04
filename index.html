@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js Board Game</title>
+    <!-- Include A-Frame Library -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- Include AR.js for A-Frame -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <!-- Include Your Main JavaScript File -->
+    <script src="scripts/main.js"></script>
+    <!-- Include Your CSS Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <!-- AR Scene -->
+    <a-scene
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+      
+      <!-- NFT Marker (for QR Code) -->
+      <a-nft
+        type="nft"
+        url="assets/markers/qr-code"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5">
+        
+        <!-- Board Model -->
+        <a-entity
+          id="board"
+          gltf-model="url(assets/models/board-model.glb)"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1">
+        </a-entity>
+
+        <!-- Game Pieces -->
+        <a-entity
+          id="piece1"
+          class="clickable"
+          gltf-model="url(assets/models/piece-model.glb)"
+          position="0 0.1 0"
+          rotation="0 0 0"
+          scale="0.5 0.5 0.5"
+          game-piece>
+        </a-entity>
+
+        <!-- Add more game pieces as needed -->
+      </a-nft>
+
+      <!-- Camera and Cursor -->
+      <a-entity camera>
+        <a-cursor
+          id="cursor"
+          fuse="false"
+          raycaster="objects: .clickable">
+        </a-cursor>
+      </a-entity>
+    </a-scene>
+
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+      <p id="turn-indicator">Player 1's Turn</p>
+      <!-- Additional UI elements -->
+    </div>
+  </body>
+</html>
