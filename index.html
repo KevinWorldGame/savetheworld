@@ -18,26 +18,27 @@
       renderer="logarithmicDepthBuffer: true;"
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
       
-      <!-- NFT Marker (for QR Code) -->
-      <a-nft
-        type="nft"
-        url="assets/markers/qr-code"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance="0.01"
-        smoothThreshold="5">
+      <!-- Marker Entity -->
+        <a-nft
+            type="nft"
+            url="assets/markers/qr-code"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5"
+            id="marker"
+        >
         
         <!-- Board Game Model -->
         <a-entity
-          id="board-game"
-          gltf-model="url(https://worldgamedata.s3.eu-west-2.amazonaws.com/public/assets/ImageToStl.com_sk_olly_t_pose.glb)"
-          position="0 0 0"
-          rotation="0 0 0"
-          scale="1 1 1">
-        </a-entity>
+            id="board-game"
+            gltf-model="url(assets/models/ImageToStl.com_sk_olly_t_pose.glb)"
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="1 1 1"
+            ></a-entity>
 
-        <!-- Add game pieces or other elements here if needed -->
-      </a-nft>
+        </a-nft>
 
       <!-- Camera and Cursor -->
       <a-entity camera>
