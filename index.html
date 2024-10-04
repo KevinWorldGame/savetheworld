@@ -13,7 +13,7 @@
     <!-- AR Scene -->
     <a-scene
       embedded
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      arjs="trackingMethod: artoolkit; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
     >
@@ -24,16 +24,25 @@
           url="assets/markers/marker.patt"
           id="marker"
           emitevents="true"
+          smooth="true"
+          smoothCount="5"
+          smoothTolerance="0.01"
+          smoothThreshold="2">
       >
         <!-- Board Game Model -->
         <a-entity
           id="board-game"
-          gltf-model="url(assets/models/board.glb)"
+          gltf-model="#board-model"
           position="0 0 0"
           rotation="0 0 0"
           scale="1 1 1"
         ></a-entity>
       </a-marker>
+    
+      <!-- Assets -->
+      <a-assets></a-assets>
+        <a-asset-item id="board-model" src="assets/models/board.glb"></a-asset-item>
+      </a-assets>
 
       <!-- Camera and Cursor -->
       <a-entity camera></a-entity>
