@@ -57,20 +57,11 @@ window.addEventListener('load', function () {
 
   if (marker) {
     marker.addEventListener('markerFound', function () {
-      console.log('Marker found (markerFound)');
+      console.log('Marker found');
     });
 
     marker.addEventListener('markerLost', function () {
-      console.log('Marker lost (markerLost)');
-    });
-
-    // Also listen for targetFound and targetLost events
-    marker.addEventListener('targetFound', function () {
-      console.log('Marker found (targetFound)');
-    });
-
-    marker.addEventListener('targetLost', function () {
-      console.log('Marker lost (targetLost)');
+      console.log('Marker lost');
     });
   } else {
     console.error('Marker entity not found');

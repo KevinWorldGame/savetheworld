@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AR.js Board Game</title>
+    <title>AR.js Board Game with Pattern Marker</title>
     <!-- Include A-Frame Library -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <!-- Include AR.js for A-Frame -->
@@ -13,36 +13,30 @@
     <!-- AR Scene -->
     <a-scene
       embedded
-      renderer="logarithmicDepthBuffer: true;"
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
     >
-      <!-- Marker Entity -->
-      <a-nft
-          type="nft"
-          url="assets/markers/qr-code"
+      <!-- Pattern Marker Entity -->
+      <a-marker
+          preset="custom"
+          type="pattern"
+          url="assets/markers/marker.patt"
           id="marker"
           emitevents="true"
       >
         <!-- Board Game Model -->
         <a-entity
-            id="board-game"
-            gltf-model="url(assets/models/ImageToStl.com_sk_olly_t_pose.glb)"
-            position="0 0 0"
-            rotation="0 0 0"
-            scale="1 1 1"
+          id="board-game"
+          gltf-model="url(assets/models/board-game.glb)"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="1 1 1"
         ></a-entity>
-      </a-nft>
+      </a-marker>
 
       <!-- Camera and Cursor -->
-      <a-entity camera>
-        <a-cursor
-          id="cursor"
-          fuse="false"
-          raycaster="objects: .clickable">
-        </a-cursor>
-      </a-entity>
+      <a-entity camera></a-entity>
     </a-scene>
 
     <!-- UI Overlay -->
